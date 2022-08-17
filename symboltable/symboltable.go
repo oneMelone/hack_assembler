@@ -7,7 +7,7 @@ import (
 // from string symbol to value
 type SymbolTable struct {
 	table map[string]int
-    currentPtr int
+	currentPtr int
 }
 
 func (s *SymbolTable) InitSymbolTable {
