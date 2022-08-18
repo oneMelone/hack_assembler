@@ -10,7 +10,7 @@ type SymbolTable struct {
 	currentPtr int
 }
 
-func (s *SymbolTable) InitSymbolTable {
+func (s *SymbolTable) InitSymbolTable() {
 	s.table = make(map[string]int)
 	for i := 0; i <= 15; i++ {
 		symbol := "R" + strconv.Itoa(i)
@@ -24,4 +24,20 @@ func (s *SymbolTable) InitSymbolTable {
 	s.table["THIS"] = 3
 	s.table["THAT"] = 4
 	s.currentPtr = 16
+}
+
+func (s *SymbolTable) SetLabelSymbolValue(symbol string, value int) {
+	s.table[symbol] = value
+}
+
+func (s *SymbolTable) GetSymbolValue(symbol string) int {
+	return s.table[symbol]
+}
+
+func (s *SymbolTable) GetVarSymbolValue(symbol string) int {
+	if value, ok := s.table[symbol]; ok {
+		return value
+	}
+	s.table[symbol] = currenPtr;
+	currentPtr += 1;
 }
