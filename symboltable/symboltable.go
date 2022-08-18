@@ -30,14 +30,16 @@ func (s *SymbolTable) SetLabelSymbolValue(symbol string, value int) {
 	s.table[symbol] = value
 }
 
-func (s *SymbolTable) GetSymbolValue(symbol string) int {
-	return s.table[symbol]
+func (s *SymbolTable) GetSymbolValue(symbol string) (int, bool) {
+	res, ok := s.table[symbol]
+	return res, ok
 }
 
 func (s *SymbolTable) GetVarSymbolValue(symbol string) int {
 	if value, ok := s.table[symbol]; ok {
 		return value
 	}
-	s.table[symbol] = currenPtr;
-	currentPtr += 1;
+	s.table[symbol] = s.currentPtr;
+	s.currentPtr += 1;
+	return s.table[symbol]
 }
