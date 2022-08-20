@@ -35,9 +35,18 @@ func main() {
 		if len(line) == 0 {
 			continue
 		}
+		// ignore line comment
+		if line[0] == '/' {
+			continue
+		}
 
 		targLine := ""
 		for _, c := range line {
+			// ignore comment
+			if c == '/' {
+				break
+			}
+
 			if c != ' ' {
 				targLine += string(c)
 			}
