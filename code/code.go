@@ -4,8 +4,6 @@ import (
 	"strconv"
 	"hack_assembler/symboltable"
 	"hack_assembler/parser"
-
-	"fmt"
 )
 
 const (
@@ -102,22 +100,7 @@ func (t *Translator)translateA(statement parser.Statement) string {
 }
 
 func (t *Translator)translateC(statement parser.Statement) string {
-	// ----test----
-	fmt.Println("before translate, map is")
-	fmt.Println("compMap:", t.compMap)
-	fmt.Println("destMap:", t.destMap)
-	fmt.Println("jumpMap:", t.jumpMap)
-
 	result := "111"
-
-	// ----test-----
-	fmt.Println("in translator")
-	fmt.Println("statement.Comp is", statement.Comp)
-	fmt.Println("comp is", t.compMap[statement.Comp])
-	fmt.Println("statement.Dest is", statement.Dest)
-	fmt.Println("dest is", t.compMap[statement.Dest])
-	fmt.Println("statement.Jump is", statement.Jump)
-
 	result += t.compMap[statement.Comp] + t.destMap[statement.Dest] + t.jumpMap[statement.Jump]
 	return result
 }

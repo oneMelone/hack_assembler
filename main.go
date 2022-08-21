@@ -6,8 +6,6 @@ import (
 	"hack_assembler/parser"
 	"os"
 	"bufio"
-
-	"fmt"
 )
 
 func main() {
@@ -65,12 +63,6 @@ func main() {
 	// parse each line, translate and write to targetfile.
 	statements := parser.Parse(inputRows)
 
-	// ----test----
-	fmt.Println("statements:")
-	for _, statement := range statements {
-		fmt.Println(statement)
-	}
-
 	mcodes := make([]string, 0)
 	for _, statement := range statements {
 		mcodes = append(mcodes, t.Translate(statement))
@@ -87,7 +79,6 @@ func main() {
 	writer := bufio.NewWriter(outputFile)
 
 	for _, mcode := range mcodes {
-		fmt.Println("mcode is", mcode)
 		_, _ = writer.WriteString(mcode + "\n")
 	}
 
