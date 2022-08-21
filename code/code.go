@@ -53,10 +53,18 @@ func (t *Translator)InitTranslator(st symboltable.SymbolTable) {
 	t.destMap["M"] = "001"
 	t.destMap["D"] = "010"
 	t.destMap["DM"] = "011"
+	t.destMap["MD"] = "011"
 	t.destMap["A"] = "100"
 	t.destMap["AM"] = "101"
+	t.destMap["MA"] = "101"
 	t.destMap["AD"] = "110"
+	t.destMap["DA"] = "110"
 	t.destMap["ADM"] = "111"
+	t.destMap["AMD"] = "111"
+	t.destMap["DAM"] = "111"
+	t.destMap["DMA"] = "111"
+	t.destMap["MDA"] = "111"
+	t.destMap["MAD"] = "111"
 
 	t.jumpMap = make(map[string]string)
 	t.jumpMap[""] = "000"

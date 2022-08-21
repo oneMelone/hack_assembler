@@ -6,8 +6,6 @@ import (
 	"hack_assembler/parser"
 	"os"
 	"bufio"
-
-	"fmt"
 )
 
 func main() {
@@ -69,11 +67,6 @@ func main() {
 	for _, statement := range statements {
 		mcodes = append(mcodes, t.Translate(statement))
 	}
-
-	// test
-	fmt.Println(inputRows[127])
-	fmt.Println(statements[127])
-	fmt.Pritnln(mcodes[127])
 
 	outputFile, err := os.OpenFile("out.hack", os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0644)
 
